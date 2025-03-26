@@ -1,0 +1,55 @@
+<mat-toolbar class="app-header">
+  <div class="header-content">
+    <!-- Logo + Brand Name -->
+    <div class="branding" routerLink="/">
+      <mat-icon class="logo-icon">directions_bus</mat-icon>
+      <h1 class="brand-name">BusGo</h1>
+      <span class="brand-tagline">Easy Travel Booking</span>
+    </div>
+
+    <!-- Spacer -->
+    <span class="spacer"></span>
+
+    <!-- Navigation Links -->
+    <nav class="nav-links">
+      <a mat-button (click)="goToHome()">Home</a>
+      <a mat-button (click)="myBookings()">My Bookings</a>
+
+      <!--<a mat-button routerLink="/offers" routerLinkActive="active-link">Offers</a>-->
+    </nav>
+
+    <!-- User Account -->
+    <!--<div class="user-account">
+      <button mat-icon-button [matMenuTriggerFor]="accountMenu" class="account-btn">
+        <mat-icon class="account-icon">account_circle</mat-icon>
+        <span class="account-name">John Doe</span>
+      </button>
+      
+      <mat-menu #accountMenu="matMenu" class="account-menu">
+        <button mat-menu-item disabled>
+          <mat-icon>person</mat-icon>
+          <span>john.doe</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>
+          <mat-icon>account_circle</mat-icon>
+          <span>My Profile</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>receipt</mat-icon>
+          <span>My Bookings</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>help</mat-icon>
+          <span>Help Center</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item class="logout-btn">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>-->
+  </div>
+</mat-toolbar>
+<mat-divider class="header-divider"></mat-divider>

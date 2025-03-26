@@ -1,0 +1,242 @@
+/* Goibibo Bus List Styles */
+.goibibo-bus-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.goibibo-heading {
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.no-buses-message {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.no-buses-message mat-icon {
+  font-size: 48px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.no-buses-message p {
+  color: #666;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.no-buses-message .suggestion {
+  color: #999;
+  font-size: 14px;
+}
+
+.bus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bus-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.bus-card-header {
+  display: flex;
+  padding: 20px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.bus-operator {
+  display: flex;
+  flex: 1;
+}
+
+.operator-logo {
+  width: 50px;
+  height: 50px;
+  background-color: #ff6e00;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.operator-logo mat-icon {
+  color: white;
+  font-size: 24px;
+}
+
+.operator-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.bus-meta {
+  display: flex;
+  align-items: center;
+}
+
+.bus-type {
+  font-size: 12px;
+  color: #666;
+  margin-right: 10px;
+  padding: 2px 8px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.bus-rating {
+  font-size: 12px;
+  color: white;
+  background-color: #388e3c;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.bus-timings {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.timing {
+  text-align: center;
+  flex: 1;
+}
+
+.timing .time {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.timing .station {
+  font-size: 14px;
+  color: #666;
+}
+
+.duration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.duration-line {
+  width: 80px;
+  height: 1px;
+  background-color: #ccc;
+  margin: 5px 0;
+}
+
+.duration-text {
+  font-size: 12px;
+  color: #666;
+}
+
+.bus-card-footer {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  justify-content: space-between;
+}
+
+.fare-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.fare-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.fare-amount {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ff6e00;
+}
+
+.amenities {
+  display: flex;
+  gap: 15px;
+}
+
+.amenity {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #666;
+}
+
+.amenity mat-icon {
+  font-size: 16px;
+  margin-right: 4px;
+  color: #666;
+}
+
+.select-seat-btn {
+  background-color: #ff6e00;
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 8px 20px;
+}
+
+.select-seat-btn:hover {
+  background-color: #e66500;
+}
+
+/* Seat Selection Section */
+.seat-selection-section {
+  padding: 20px;
+  border-top: 1px solid #f5f5f5;
+  background-color: #f9f9f9;
+}
+
+.seat-selection-heading {
+  color: #333;
+  font-size: 16px;
+  margin: 0 0 15px 0;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bus-card-header {
+    flex-direction: column;
+  }
+  
+  .bus-timings {
+    margin-top: 15px;
+  }
+  
+  .bus-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .amenities {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

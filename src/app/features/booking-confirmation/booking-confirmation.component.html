@@ -1,0 +1,80 @@
+<div class="booking-success-container">
+    <!-- Header -->
+    <div class="success-header">
+      <mat-icon class="success-icon">check_circle</mat-icon>
+      <h1>Booking Confirmed!</h1>
+      <p class="reference">Booking ID: {{bookingData.transactionId}}</p>
+    </div>
+  
+    <!-- Journey Summary Card -->
+    <mat-card class="summary-card">
+        <div class="bus-summary">
+          <div class="bus-logo">
+            <mat-icon>directions_bus</mat-icon>
+          </div>
+          <div class="bus-details">
+            <h2>{{bookingData.busDetails.name}}</h2>
+            <div class="route">
+              <span class="station">{{bookingData.busDetails.source}}</span>
+              <mat-icon>arrow_right_alt</mat-icon>
+              <span class="station">{{bookingData.busDetails.destination}}</span>
+            </div>
+            <div class="timing">
+              <span>{{bookingData.busDetails.departureTime}}</span>
+              <span class="duration">{{bookingData.busDetails.duration}}</span>
+              <span>{{bookingData.busDetails.arrivalTime || '--:--'}}</span>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+  
+    <!-- Passenger & Payment Details -->
+    <div class="details-grid">
+      <!-- Passenger Details -->
+      <mat-card class="details-card">
+        <h3><mat-icon>people</mat-icon> Passenger Details</h3>
+        <div *ngFor="let passenger of bookingData.passengerDetails; let i = index" class="passenger-row">
+            <span class="passenger-name">{{passenger}}</span>
+            <span class="seat-badge">Seat {{bookingData.seatNumbers[i]}}</span>
+          </div>
+      </mat-card>
+  
+      <!-- Payment Details -->
+      <mat-card class="details-card">
+        <h3><mat-icon>payment</mat-icon> Payment Details</h3>
+        <div class="payment-row">
+          <span>Total Fare</span>
+          <span class="fare">₹{{bookingData.totalFare}}</span>
+        </div>
+        <div class="payment-row">
+          <span>Payment Status</span>
+          <span class="status-success">Paid</span>
+        </div>
+        <div class="payment-row">
+          <span>Date</span>
+          <span>{{bookingData.bookingDate | date}}</span>
+        </div>
+      </mat-card>
+    </div>
+  
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button mat-raised-button class="download-btn" (click)="downloadTicket()">
+        <mat-icon>download</mat-icon> Download Ticket
+      </button>
+      <button mat-stroked-button class="view-btn" (click)="viewTicket()">
+        <mat-icon>visibility</mat-icon> View Ticket
+      </button>
+      <button mat-button class="home-btn" (click)="goHome()">
+        <mat-icon>home</mat-icon> Back to Home
+      </button>
+    </div>
+  
+    <!-- Embedded PDF Viewer (Hidden by default) -->
+    <div class="pdf-viewer-container" *ngIf="showPdfViewer">
+      <iframe [src]="pdfUrl" width="100%" height="600px"></iframe>
+      <button mat-icon-button class="close-btn" (click)="showPdfViewer = false">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>

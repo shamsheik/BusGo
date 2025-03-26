@@ -1,0 +1,144 @@
+<mat-accordion [multi]="true" class="ibibo-accordion">
+  <!-- Bus Details Panel -->
+  <mat-expansion-panel [expanded]="true" class="ibibo-panel">
+    <mat-expansion-panel-header class="ibibo-panel-header">
+      <mat-panel-title class="panel-title">
+        <mat-icon>directions_bus</mat-icon> Bus Details
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card-content class="ibibo-card-content">
+      <div class="bus-info-container">
+        <div class="bus-operator">
+          <div class="bus-icon">
+            <mat-icon>directions_bus</mat-icon>
+          </div>
+          <div class="bus-details">
+            <h3>{{busDetails.name}}</h3>
+            <div class="bus-meta">
+              <span class="bus-type">{{busDetails.type}}</span>
+              <span class="bus-rating">4.2 ★</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="route-info">
+          <div class="route-point">
+            <div class="time">{{busDetails.departureTime}}</div>
+            <div class="place">{{busDetails.source}}</div>
+          </div>
+          
+          <div class="route-duration">
+            <div class="duration-line"></div>
+            <div class="duration-text">{{busDetails.duration}} hrs</div>
+          </div>
+          
+          <div class="route-point">
+            <div class="time">{{busDetails.arrivalTime}}</div>
+            <div class="place">{{busDetails.destination}}</div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-expansion-panel>
+
+  <!-- Travelers Panel -->
+  <mat-expansion-panel [expanded]="true" class="ibibo-panel">
+    <mat-expansion-panel-header class="ibibo-panel-header">
+      <mat-panel-title class="panel-title">
+        <mat-icon>people</mat-icon> Traveler Details
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card-content class="ibibo-card-content">
+      <form #travelerForm="ngForm" class="traveler-form">
+        <div *ngFor="let traveler of travelers; let i = index" class="traveler-card">
+          <div class="traveler-header">
+            <div class="traveler-number">Traveler {{ i + 1 }}</div>
+            <div class="seat-number">Seat: {{traveler.seatCount}}</div>
+          </div>
+          
+          <div class="traveler-details">
+            <div class="form-group">
+              <label for="name{{ i }}">Full Name</label>
+              <input type="text" id="name{{ i }}" name="name{{ i }}" 
+                     [(ngModel)]="traveler.name" required #name="ngModel"
+                     placeholder="Enter full name">
+              <div *ngIf="name.invalid && name.touched" class="error-msg">
+                <mat-icon>error</mat-icon> Name is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="age{{ i }}">Age</label>
+              <input id="age{{ i }}" name="age{{ i }}" type="number" 
+                     [(ngModel)]="traveler.age" required #age="ngModel"
+                     placeholder="Age" min="1" max="100">
+              <div *ngIf="age.invalid && age.touched" class="error-msg">
+                <mat-icon>error</mat-icon> Age is required
+              </div>
+            </div>
+            
+            <div class="form-group gender-group">
+              <label>Gender</label>
+              <mat-button-toggle-group [(ngModel)]="traveler.gender" 
+                                      name="gender{{i}}" 
+                                      class="ibibo-toggle-group">
+                <mat-button-toggle value="male" class="ibibo-toggle">
+                  <mat-icon>male</mat-icon> Male
+                </mat-button-toggle>
+                <mat-button-toggle value="female" class="ibibo-toggle">
+                  <mat-icon>female</mat-icon> Female
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-expansion-panel>
+
+  <!-- Contact Details Panel -->
+  <mat-expansion-panel [expanded]="true" class="ibibo-panel">
+    <mat-expansion-panel-header class="ibibo-panel-header">
+      <mat-panel-title class="panel-title">
+        <mat-icon>contact_mail</mat-icon> Contact Details
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card-content class="ibibo-card-content">
+      <form #contactForm="ngForm" class="contact-form">
+        <div class="form-group">
+          <label>Email ID</label>
+          <input type="email" id="email" name="email" [(ngModel)]="email" 
+                 required #emailInput="ngModel" 
+                 pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$"
+                 placeholder="Enter email address">
+          <div *ngIf="emailInput.invalid && emailInput.touched" class="error-msg">
+            <mat-icon>error</mat-icon> Valid email is required
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Mobile Number</label>
+          <div class="phone-input">
+            <span class="country-code">+91</span>
+            <input type="tel" id="mobile" name="mobile" [(ngModel)]="mobile" 
+                   required #mobileInput="ngModel"
+                   minlength="10" maxlength="10" 
+                   placeholder="Enter 10-digit mobile number">
+          </div>
+          <div *ngIf="mobileInput.invalid && mobileInput.touched" class="error-msg">
+            <mat-icon>error</mat-icon> 10-digit number is required
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<!-- Proceed Button -->
+<div class="proceed-container">
+  <button mat-raised-button class="proceed-button" 
+          (click)="proceedBooking(travelerForm, contactForm)">
+    <span>Proceed to Pay</span>
+    <span class="fare-amount">₹{{totalfare}}</span>
+  </button>
+</div>

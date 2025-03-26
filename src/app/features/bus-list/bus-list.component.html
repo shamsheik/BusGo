@@ -1,0 +1,75 @@
+<div class="goibibo-bus-container">
+    <h1 class="goibibo-heading">Available Buses</h1>
+    
+    <div *ngIf="buses.length === 0" class="no-buses-message">
+      <mat-icon>directions_bus</mat-icon>
+      <p>No buses available for this route</p>
+      <p class="suggestion">Try changing your search criteria</p>
+    </div>
+  
+    <div class="bus-list">
+      <div *ngFor="let bus of buses" class="bus-card">
+        <div class="bus-card-header">
+          <div class="bus-operator">
+            <div class="operator-logo">
+              <mat-icon>directions_bus</mat-icon>
+            </div>
+            <div class="operator-info">
+              <h3>{{ bus.name }}</h3>
+              <div class="bus-meta">
+                <span class="bus-type">{{ bus.type }}</span>
+                <span class="bus-rating">4.2 ★</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bus-timings">
+            <div class="timing departure">
+              <div class="time">{{ bus.departureTime }}</div>
+              <div class="station">{{ bus.source }}</div>
+            </div>
+            
+            <div class="duration">
+              <div class="duration-line"></div>
+              <div class="duration-text">{{ bus.duration }} hrs</div>
+            </div>
+            
+            <div class="timing arrival">
+              <div class="time">{{ bus.arrivalTime }}</div>
+              <div class="station">{{ bus.destination }}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bus-card-footer">
+          <div class="fare-container">
+            <span class="fare-label">Fare starts from</span>
+            <span class="fare-amount">₹{{ bus.fare }}</span>
+          </div>
+          
+          <div class="amenities">
+            <span *ngIf="bus.ac" class="amenity">
+              <mat-icon>ac_unit</mat-icon> AC
+            </span>
+            <span *ngIf="bus.sleeper" class="amenity">
+              <mat-icon>single_bed</mat-icon> Sleeper
+            </span>
+            <span *ngIf="bus.wifi" class="amenity">
+              <mat-icon>wifi</mat-icon> WiFi
+            </span>
+          </div>
+          
+          <button mat-raised-button class="select-seat-btn" 
+                  (click)="selectBus(bus)">
+            {{ selectedBusId === bus.id ? 'HIDE SEATS' : 'VIEW SEATS' }}
+          </button>
+        </div>
+        
+        <!-- Seat Selection Section -->
+        <div *ngIf="selectedBusId === bus.id" class="seat-selection-section">
+          <h4 class="seat-selection-heading">Select your seats on {{ bus.name }}</h4>
+          <app-seat-selection [bus]="bus"></app-seat-selection>
+        </div>
+      </div>
+    </div>
+  </div>

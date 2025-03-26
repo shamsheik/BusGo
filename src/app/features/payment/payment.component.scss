@@ -1,0 +1,458 @@
+/* Payment Card Styles */
+.payment-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.payment-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.card-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+}
+
+.card-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.card-icons i {
+  font-size: 1.8rem;
+  color: #555;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.pay-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.pay-button:hover {
+  background-color: #2980b9;
+}
+
+.pay-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.payment-status {
+  margin-top: 20px;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #27ae60;
+}
+
+.cardNumber{
+  width: 60%;
+}
+
+mat-card {
+  width: 100%;
+  max-width: 75%;
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+mat-expansion-panel{
+  margin: 20px !important;
+}
+
+/* Passenger Details Styles */
+.person-details {
+  margin-top: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #fff;
+}
+
+.passenger-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.passenger-header i {
+  font-size: 20px;
+  color: #ff6e00;
+  margin-right: 10px;
+}
+
+.passenger-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.passenger-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.passenger-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  border-left: 3px solid #ff6e00;
+}
+
+.passenger-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.passenger-number {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.passenger-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.passenger-seat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.seat-label {
+  font-size: 10px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.seat-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff6e00;
+}
+/* Goibibo/MakeMyTrip Theme Styles */
+.ibibo-style {
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+}
+
+.ibibo-header {
+  background-color: #fff !important;
+  border-bottom: 1px solid #f2f2f2 !important;
+  height: 60px !important;
+}
+
+.ibibo-header .matTitle {
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.ibibo-header .matTitle i {
+  color: #ff6e00;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.ibibo-content {
+  padding: 15px 20px;
+}
+
+/* Bus Operator Section */
+.bus-operator {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.operator-logo {
+  width: 50px;
+  height: 50px;
+  background-color: #ff6e00;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.operator-logo i {
+  color: white;
+  font-size: 24px;
+}
+
+.operator-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.operator-rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating-badge {
+  background-color: #388e3c;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.bus-type {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Route Timings */
+.route-timings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px dashed #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.route-section {
+  text-align: center;
+}
+
+.route-section .time {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.route-section .place {
+  font-size: 14px;
+  color: #666;
+}
+
+.route-duration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.duration-line {
+  width: 80px;
+  height: 1px;
+  background-color: #ccc;
+  margin: 5px 0;
+}
+
+.route-duration i {
+  color: #ff6e00;
+  font-size: 14px;
+}
+
+.duration-text {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Boarding Points */
+.boarding-points {
+  padding: 10px 0;
+  border-bottom: 1px dashed #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.point {
+  display: flex;
+  align-items: center;
+}
+
+.boarding-icon {
+  color: #ff6e00;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.point-type {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Passenger Section */
+.passenger-section {
+  padding-top: 10px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-header i {
+  color: #ff6e00;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.section-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.passenger-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.passenger-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  border-left: 3px solid #ff6e00;
+}
+
+.passenger-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.passenger-number {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.passenger-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.passenger-gender {
+  font-size: 12px;
+  color: #666;
+}
+
+.seat-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.seat-label {
+  font-size: 10px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.seat-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff6e00;
+}

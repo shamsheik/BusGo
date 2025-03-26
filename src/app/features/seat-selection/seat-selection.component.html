@@ -1,0 +1,17 @@
+<div class="seat-layout">
+    <div *ngFor="let seat of seatNumbers" 
+         [class.selected]="selectedSeats.includes(seat)"
+         [class.booked]="isSeatBooked(seat)"
+         class="seat-icon"
+         (click)="!isSeatBooked(seat) && toggleSeatSelection(seat)">
+         <i class="fa fa-couch" style="font-size: 26px; color: #000;"></i>
+         <span class="seat-number">{{ seat }}</span>
+      
+    </div>
+  </div>
+  <div *ngIf="selectedSeats.length > 0">
+    <h3>Selected Seats: {{ selectedSeats.join(', ') }}</h3>
+    <p>Total Fare: ₹{{ totalFare }}</p>
+  </div>
+  <button (click)="confirmSeats()" class="confirm-btn" [disabled]="selectedSeats.length === 0">Confirm Seats</button>
+  

@@ -1,0 +1,79 @@
+<!-- my-bookings.component.html -->
+<div class="my-bookings-container">
+    <div class="header">
+      <h1><i class="fas fa-suitcase"></i> My Bookings</h1>
+      <div class="filter-options">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Upcoming</button>
+        <button class="filter-btn">Completed</button>
+        <button class="filter-btn">Cancelled</button>
+      </div>
+    </div>
+  
+    <div class="bookings-list">
+      <div *ngFor="let booking of bookings" class="booking-card" [class.cancelled]="booking.status === 'cancelled'">
+        <div class="booking-header">
+          <div class="booking-id">Booking ID: {{booking.id}}</div>
+          <div class="booking-status" [class.success]="booking.status === 'confirmed'" 
+                                    [class.danger]="booking.status === 'cancelled'">
+            {{booking.status | uppercase}}
+          </div>
+        </div>
+  
+        <div class="booking-content">
+          <div class="route-info">
+            <div class="from">
+              <div class="time">{{booking.busDetails.departureTime}}</div>
+              <div class="city">{{booking.busDetails.from}}</div>
+            </div>
+            <div class="duration">
+              <div class="line"></div>
+              <div class="time-taken">{{booking.busDetails.duration}}</div>
+            </div>
+            <div class="to">
+              <div class="time">{{booking.busDetails.arrivalTime}}</div>
+              <div class="city">{{booking.busDetails.to}}</div>
+            </div>
+          </div>
+  
+          <div class="details-grid">
+            <div class="detail-item">
+              <label>Bus Name</label>
+              <p>{{booking.busDetails.name}}</p>
+            </div>
+            <div class="detail-item">
+              <label>Travel Date</label>
+              <p>{{booking.busDetails.travelDate | date}}</p>
+            </div>
+            <div class="detail-item">
+              <label>Seats</label>
+              <p>{{booking.seatNumbers.join(', ')}}</p>
+            </div>
+            <div class="detail-item">
+              <label>Total Fare</label>
+              <p class="fare">{{booking.totalFare | currency:'INR'}}</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="booking-footer">
+          <button class="action-btn view-details" (click)="viewDetails(booking.id)">
+            <i class="fas fa-eye"></i> View Details
+          </button>
+          <button *ngIf="booking.status === 'confirmed'" class="action-btn cancel" (click)="cancelBooking(booking.id)">
+            <i class="fas fa-times"></i> Cancel
+          </button>
+          <button class="action-btn download" (click)="downloadTicket(booking.id)">
+            <i class="fas fa-download"></i> Download Ticket
+          </button>
+        </div>
+      </div>
+  
+      <div *ngIf="bookings.length === 0" class="no-bookings">
+        <img src="assets/images/no-bookings.svg" alt="No bookings">
+        <h3>No bookings found</h3>
+        <p>You haven't made any bookings yet</p>
+        <button class="btn-primary" routerLink="/search">Book a Bus</button>
+      </div>
+    </div>
+  </div>
